@@ -67,10 +67,10 @@ app.use('/api/v2/logout', routes.logoutRouter);
 if (process.env.NODE_ENV === 'production') {
 	const dir = __dirname.slice(0,-4);
 	app.use(express.static(path.join(dir, '/client/build')));
-
 	app.get('*', (req, res) => {
 		res.sendFile(path.join(dir, 'client', 'build', 'index.html'));
 	})
+
 } else {
 	app.get('/', (req, res) => {
 		res.send('facebook-clone server development');

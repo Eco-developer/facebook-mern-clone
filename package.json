@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node build/index.js",
+    "start": "npm run build-server && node build/index.js",
     "dev": "nodemon --exec babel-node src/index.js",
     "clean": "rm -rf build && mkdir build",
     "build-babel": "babel src -d build",
-    "build": "npm run clean && npm run build-babel"
+    "build-server": "npm run clean && npm run build-babel"
   },
   "keywords": [],
   "author": "",

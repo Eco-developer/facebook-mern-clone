@@ -16,9 +16,9 @@ import 'dotenv/config';
 const app = express();
 
 //Midlewares:
-//if (process.env.NODE_ENV === 'development') {
-app.use(cors({origin: 'http://localhost:3000/', credentials: true}));
-//}
+if (process.env.NODE_ENV === 'development') {
+	app.use(cors({origin: 'http://localhost:3000/', credentials: true}));
+}
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
@@ -64,7 +64,7 @@ app.use('/api/v2/delete', routes.deletePostRouter);
 app.use('/api/v2/delete', routes.deleteStoryRouter)
 app.use('/api/v2/logout', routes.logoutRouter);
 
-/*if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === 'production') {
 	const dir = __dirname.slice(0,-4);
 	app.use(express.static(path.join(dir, '/client/build')));
 
@@ -72,11 +72,11 @@ app.use('/api/v2/logout', routes.logoutRouter);
 		res.sendFile(path.join(dir, 'client', 'build', 'index.html'));
 	})
 } else {
-	
-}*/
-app.get('/', (req, res) => {
+	app.get('/', (req, res) => {
 		res.send('facebook-clone server development');
 	});
+}
+
 //npm i react-redux^7.2.3 redux^4.0.5 redux-saga^1.1.3
 // npm audit fix
 //Config:

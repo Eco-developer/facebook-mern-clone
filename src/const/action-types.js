@@ -1,0 +1,10 @@
+export const SET_MESSAGE = 'SET_MESSAGE';
+export const SET_POST = 'SET_POST';
+export const SET_STORY = 'SET_STORY';
+export const UPDATE_POST = 'UPDATE_POST';
+export const DELETE_POST = 'DELETE_POST';
+export const DELETE_STORY = 'DELETE_STORY';
+export const SET_COMMENT = 'SET_COMMENT';
+export const UPDATE_USER_PROFILE = 'UPDATE_USER_PROFILE';
+export const SET_NOTIFICATION = 'SET_NOTIFICATION';
+export const LOAD_USER = 'LOAD_USER';

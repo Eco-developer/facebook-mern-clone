@@ -1,0 +1,45 @@
+{
+  "name": "facebook-clone",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node build/index.js",
+    "dev": "nodemon --exec babel-node src/index.js",
+    "clean": "rm -rf build && mkdir build",
+    "build-babel": "babel src -d build",
+    "build": "npm run clean && npm run build-babel"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/cli": "^7.15.7",
+    "@babel/core": "^7.15.8",
+    "@babel/node": "^7.15.8",
+    "@babel/plugin-transform-runtime": "^7.15.8",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.15.8",
+    "@babel/runtime": "^7.15.4",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "connect-mongo": "^4.4.1",
+    "cors": "^2.8.5",
+    "dotenv": "^9.0.2",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "gridfs-stream": "^1.1.1",
+    "mongoose": "^5.12.3",
+    "multer": "^1.4.2",
+    "multer-gridfs-storage": "^4.2.0",
+    "nodemon": "^2.0.7",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "path": "^0.12.7",
+    "pusher": "^5.0.0"
+  },
+  "engines": {
+	"node": "12.18.2",
+	"npm": "6.14.5"
+  }
+}

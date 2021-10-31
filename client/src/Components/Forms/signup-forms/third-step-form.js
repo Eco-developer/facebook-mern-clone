@@ -95,13 +95,14 @@ const ConnectedThirdStepForm = ({userData, setDefaultData, seedInitialData}) => 
 			civil_state: '',
 			displayPhoto: '',
 			...userData,
+			email: user.email.toLowerCase(),
 		}
 		try {
 			const response = await axios.post(`${FACEBOOK_API}sign-up`, {...user})
 			console.log(response.data)
 			if (response.data) {
 				const signUpUser = {
-					email: user.email, 
+					email: user.email.toLowerCase(), 
 					password: user.password,
 				}
 				const response = await axios.post(

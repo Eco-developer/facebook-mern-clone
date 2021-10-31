@@ -1,6 +1,4 @@
-import Login from '../Login/index.js';
-import SingUpPage from '../sing-up/index.js';
-import Body from '../Body/index.js';
+import Loading from '../../Components/Loading/index.js';
 import {
 	PrivateRoute,
 	PublicOnlyRoute
@@ -10,22 +8,31 @@ import {
 	Switch, 
 	Redirect 
 } from 'react-router-dom';
+import {
+	lazy,
+	Suspense,
+} from 'react';
 import * as ROUTES from '../../Const/routes.js';
+const Login = lazy(() => import('../Login/index.js')) ;
+const SingUpPage = lazy(() => import('../sing-up/index.js')) ;
+const Body = lazy(() => import('../Body/index.js'));
 
 const Navigation = () => {
 	return (
 		<Router>
 			<Switch>
-				<PublicOnlyRoute exact path={ROUTES.LANDING_PAGE}>
-					<Login/>
-				</PublicOnlyRoute>
-				<PublicOnlyRoute path={ROUTES.SIGNUP_PAGE}>
-					<SingUpPage/>
-				</PublicOnlyRoute>
-				<PrivateRoute path={ROUTES.BODY}>
-					<Body/>
-				</PrivateRoute>
-				<Redirect to={ROUTES.LANDING_PAGE}/>
+				<Suspense fallback={<Loading/>}>
+					<PublicOnlyRoute exact path={ROUTES.LANDING_PAGE}>
+						<Login/>
+					</PublicOnlyRoute>
+					<PublicOnlyRoute path={ROUTES.SIGNUP_PAGE}>
+						<SingUpPage/>
+					</PublicOnlyRoute>
+					<PrivateRoute path={ROUTES.BODY}>
+						<Body/>
+					</PrivateRoute>
+					<Redirect to={ROUTES.LANDING_PAGE}/>
+				</Suspense>
 			</Switch>
 		</Router>
 	)

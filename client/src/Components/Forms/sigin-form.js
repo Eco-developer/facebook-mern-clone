@@ -93,13 +93,7 @@ const SignInFormBase = ({seedInitialData}) => {
 				</div>	
 				<div className='form-group'>
 					<p>
-						Do not have an account?
-						<Link 
-							to={SIGNUP_PAGE}
-							className='signup-link'
-						>
-						 create one
-						</Link> 
+						Do not have an account? <Link to={SIGNUP_PAGE} className='signup-link'>create one </Link> 
 					</p>
 				</div>
 			</Form>

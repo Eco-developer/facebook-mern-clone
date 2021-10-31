@@ -1,8 +1,23 @@
 import Progress from '../../Components/Progress/index.js';
-import { FirstStepForm, SecondStepForm, ThirdStepForm } from '../../Components/Forms/index.js';
+import { 
+	FirstStepForm, 
+	SecondStepForm, 
+	ThirdStepForm 
+} from '../../Components/Forms/index.js';
 import { useState } from 'react';
-import { BrowserRouter as Router, Switch, Route, Redirect, Link } from 'react-router-dom';
-import { LANDING_PAGE, SIGNUP_PAGE, SECOND_STEP, THIRD_STEP } from '../../Const/routes.js';
+import { 
+	BrowserRouter as Router, 
+	Switch, 
+	Route, 
+	Redirect, 
+	Link
+} from 'react-router-dom';
+import { 
+	LANDING_PAGE, 
+	SIGNUP_PAGE, 
+	SECOND_STEP, 
+	THIRD_STEP
+} from '../../Const/routes.js';
 import logo from '../../Images/1280px-Facebook_Logo_(2019).svg.png';
 
 const SignUpPage = () => {

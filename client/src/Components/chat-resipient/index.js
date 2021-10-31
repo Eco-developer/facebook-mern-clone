@@ -3,7 +3,6 @@ import Avatar from '../Avatar/index.js';
 const ChatResipient = ({src, name, status, id, setResipientTarget, resipientTarget}) => {
 	
 	const onClick = (e) => {
-		const { target } = e;
 		if (window.innerWidth <= 575) {
 			const chatMain = document.querySelector('.chats-main');
 			chatMain.style.setProperty('transform', 'translate(0)');

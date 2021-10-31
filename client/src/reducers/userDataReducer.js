@@ -1,4 +1,7 @@
-import { UPDATE_USER_DATA, DEFAULT_USER_DATA } from '../Const/action-types.js';
+import { 
+	UPDATE_USER_DATA, 
+	DEFAULT_USER_DATA 
+} from '../Const/action-types.js';
 
 const userDataReducer = (state = {}, action) => {
 	switch(action.type) {

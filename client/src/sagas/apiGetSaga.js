@@ -24,7 +24,6 @@ export default function* watcherSaga() {
 function* workerSaga() {
 	try {
 		const userPayload = yield call(fetchAuthUser);
-		console.log(userPayload)
 		if (userPayload) {
 			const usersPayload = yield call(fetchUsers);
 			const postsPayload = yield call(fetchPosts);

@@ -1,4 +1,5 @@
 import Loading from '../../Components/Loading/index.js';
+import Login from '../Login/index.js';
 import {
 	PrivateRoute,
 	PublicOnlyRoute
@@ -13,7 +14,6 @@ import {
 	Suspense,
 } from 'react';
 import * as ROUTES from '../../Const/routes.js';
-const Login = lazy(() => import('../Login/index.js')) ;
 const SingUpPage = lazy(() => import('../sing-up/index.js')) ;
 const Body = lazy(() => import('../Body/index.js'));
 

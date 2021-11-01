@@ -66,10 +66,9 @@ app.use('/api/v2/logout', routes.logoutRouter);
 
 if (process.env.NODE_ENV === 'production') {
 	const dir = __dirname.slice(0,-6);
-	//app.use(express.static(path.join(dir, '/client/build')));
+	app.use(express.static(path.join(dir, '/client/build')));
 	app.get('*', (req, res) => {
-		//res.sendFile(path.join(dir, 'client', 'build', 'index.html'));
-		res.send(`${__dirname}     ${dir}`)
+		res.sendFile(path.join(dir, 'client', 'build', 'index.html'));
 	})
 
 } else {

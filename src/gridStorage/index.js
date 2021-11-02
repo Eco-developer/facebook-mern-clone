@@ -1,9 +1,8 @@
 import GridStorage from 'multer-gridfs-storage';
-import path from 'path';
 
 const gridStorageConfig = (req, file) => {
 	return new Promise((resolve, reject) => {
-		const filename = `image-${new Date()}${path.extname(file.originalname)}`
+		const filename = `image-${file.originalname}`
 		const fileInfo = {
 			filename,
 			bucketName: 'images',
@@ -12,6 +11,13 @@ const gridStorageConfig = (req, file) => {
 	})
 }
 
-const storage = new GridStorage({url: process.env.MONGO_URI, file: gridStorageConfig}) 
+const storage = new GridStorage({
+	url: process.env.MONGO_URI, 
+	options: {
+		useNewUrlParser: true,
+		useUnifiedTopology: true,
+	},
+	file: gridStorageConfig
+}) 
 
 export default storage;

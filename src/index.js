@@ -77,8 +77,6 @@ if (process.env.NODE_ENV === 'production') {
 	});
 }
 
-//npm i react-redux^7.2.3 redux^4.0.5 redux-saga^1.1.3
-// npm audit fix
 //Config:
 
 const PORT = process.env.PORT || 4040;

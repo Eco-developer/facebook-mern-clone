@@ -10,7 +10,7 @@ const CommentsSectionContainer = ({allComments, isCommentGroup, nodeRef, handleC
 				className='d-flex flex-column flex-grow-1 p-1 height-fit replies-target'
 				ref={nodeRef}
 			>
-				{allComments?.map((comment) => (
+				{allComments?.reverse().map((comment) => (
 					<CommentsSection
 						key={uuid()}
 						handleCommentsId={handleCommentsId}

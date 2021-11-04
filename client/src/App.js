@@ -57,9 +57,13 @@ function AppBase({seedInitialData, isLoading, handleDispatch, user}) {
     				handleDispatch({type: UPDATE_EXPANDED_POST_COMMENTS, payload})
     			}
 
-    			if (type === SET_MESSAGE && (payload.sender === user._id || payload.reciver === user._id)) {
-    				handleDispatch({type, payload});
-    				return;
+    			if (type === SET_MESSAGE) {
+    				console.log(payload.sender)
+    				console.log(payload.reciver)
+    				console.log(user._id)
+    				if (payload.sender !== user._id && payload.reciver !== user._id) {
+    					return;
+    				}
     			}
 
     			if (type === SET_NOTIFICATION && (payload.user.user_id === user._id)) {

@@ -18,7 +18,6 @@ const CovidNews = () => {
 						articles,
 					}
 				} = response;
-				console.log(articles)
 				setArticles(articles)
 			} catch (error) {
 				console.log(error.message)
@@ -29,13 +28,13 @@ const CovidNews = () => {
 	return (
 		<div className='w-100 d-flex flex-column max-1000'>
 			{articlesSet.length ? 
-				articlesSet.map(({author, title, url, urlToImage, description}) => (
+				articlesSet.map(({source, title, url, image, description}) => (
 					<Articule
 						key={url}
-						author={author}
+						source={source?.name}
 						title={title}
 						url={url}
-						urlToImage={urlToImage}
+						urlToImage={image}
 						description={description}
 					/>
 				))

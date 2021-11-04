@@ -1,7 +1,7 @@
 import fallbackImg from '../../Images/covid-fullback-img.jpg';
 import { PostLoyout } from '../Loyouts/index.js';
 
-const Articule = ({author, title, description, url, urlToImage}) => (
+const Articule = ({source='', title, description, url, urlToImage}) => (
 	<a 
 		href={url} 
 		target='_blank'
@@ -29,7 +29,7 @@ const Articule = ({author, title, description, url, urlToImage}) => (
 					</div>
 					<div className='ml-2'>
 						<p className='m-0 text-secondary'>
-							{author}	
+							{source}	
 						</p>
 					</div>
 				</div>

@@ -42,7 +42,7 @@ const expandedPostReducer = (state = null, action) => {
 							if (item.replies_id !== action.payload.comments_id) {
 								return item;
 							}
-							const replies = item.replies.allComments ?
+							const replies = item.replies?.allComments ?
 							{
 								...item.replies,
 								allComments: [action.payload, ...item.replies.allComments]

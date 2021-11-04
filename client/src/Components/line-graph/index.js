@@ -1,4 +1,4 @@
-/*import axios from 'axios';
+import axios from 'axios';
 import DISEASE_API from '../../Const/diseaseApi.js';
 import buildChartData from '../../services/build-chart-data/index.js';
 import { PostLoyout } from '../Loyouts/index.js'
@@ -103,4 +103,4 @@ const LineGraph = ({ casesType='cases' }) => {
   );
 }
 
-export default LineGraph; */
+export default LineGraph;

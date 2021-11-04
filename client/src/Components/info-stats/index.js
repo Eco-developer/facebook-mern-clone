@@ -1,6 +1,6 @@
 import InfoBox from '../info-box/index.js';
 import InfoStatsHeader from '../info-stats-header/index.js';
-//import LineGraph from '../line-graph/index.js';
+import LineGraph from '../line-graph/index.js';
 import { useState } from 'react';
 
 const InfoStats = ({covidInfo}) => {
@@ -42,9 +42,9 @@ const InfoStats = ({covidInfo}) => {
 					currentType={casesType}
 				/>
 			</div>
-			{/*<LineGraph 
+			<LineGraph 
 				casesType={casesType}
-			/>*/}
+			/>
 		</div>
 	)
 }

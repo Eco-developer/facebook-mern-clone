@@ -1,6 +1,6 @@
-//import numeral from "numeral";
+import numeral from "numeral";
 import { PostLoyout } from '../Loyouts/index.js';
-//import { prettyPrintStat } from '../../services/pretty-print-stat/index.js';
+import { prettyPrintStat } from '../../services/pretty-print-stat/index.js';
 
 const InfoBox = ({onClick, title, cases, total, type, currentType}) => (
 	<div 
@@ -21,16 +21,16 @@ const InfoBox = ({onClick, title, cases, total, type, currentType}) => (
 			<div className='mb-1'>
 				<h5 className={`${currentType === type ? type + '-text-active' : 'text_black'} m-0 transition-4s-eio`}
 				>
-					{cases}
-					{/*prettyPrintStat(cases)*/}
+					{/*cases*/}
+					{prettyPrintStat(cases)}
 				</h5>
 			</div>
 			<div>
 				<h6 
 					className={`${currentType === type ? 'text_black' : 'text-secondary'} m-0 transition-4s-eio`}
 				>
-					{total}
-					{/*numeral(total).format("0.0a")*/}
+					{/*total*/}
+					{numeral(total).format("0.0a")}
 				</h6>
 			</div>
 		</PostLoyout>

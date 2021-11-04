@@ -40,7 +40,6 @@ function AppBase({seedInitialData, isLoading, handleDispatch, user}) {
 		const channel = pusher.subscribe("facebook-channel");
 
     	channel.bind("trigger", (data) => {
-    		console.log(data);
     		if (user) {
 				const {
     				type, 
@@ -58,9 +57,6 @@ function AppBase({seedInitialData, isLoading, handleDispatch, user}) {
     			}
 
     			if (type === SET_MESSAGE) {
-    				console.log(payload.sender)
-    				console.log(payload.reciver)
-    				console.log(user._id)
     				if (payload.sender !== user._id && payload.reciver !== user._id) {
     					return;
     				}

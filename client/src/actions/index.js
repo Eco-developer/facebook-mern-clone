@@ -11,6 +11,7 @@ import {
 	SET_RE_POST,
 	SET_RESIPIENT_TARGET,
 	LOADING_PROFILE,
+	DELETE_STORY
 } from '../Const/action-types.js';
 
 export function updateUserData(payload) {
@@ -58,4 +59,8 @@ export function requestData() {
 
 export function setLoadingProfile(payload) {
 	return { type: LOADING_PROFILE, payload };
+}
+
+export function deleteStory(payload) {
+	return{ type: DELETE_STORY, payload }
 }

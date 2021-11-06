@@ -6,12 +6,19 @@ import {
 	useState,
 	useEffect
 } from 'react';
+import { deleteStory } from '../../actions/index.js';
 
 const mapStateToProps = (state) => (
 	{ uId: state.user._id }
 )
 
-const DeleteStoryBase = ({userId, storyId, uId, handleLeftControl}) => {
+const mapDispatchToProps = (dispatch) => {
+	return {
+		handleDeleteStory: (id) => dispatch(deleteStory(id))
+	};
+};
+
+const DeleteStoryBase = ({userId, storyId, uId, handleLeftControl, handleDeleteStory}) => {
 	const [display, setDisplay] = useState(false);
 	const isCurrentUser = userId === uId;
 	
@@ -31,6 +38,7 @@ const DeleteStoryBase = ({userId, storyId, uId, handleLeftControl}) => {
 			handleDisplay();
 			await axios.delete(
 				`${FACEBOOK_API}delete/story/${storyId}`);
+			handleDeleteStory(storyId)
 		} catch (err) {
 			console.log(err);
 		}
@@ -63,6 +71,9 @@ const Delete = ({onClick}) => (
 )
 
 
-const DeleteStory = connect(mapStateToProps)(DeleteStoryBase);
+const DeleteStory = connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(DeleteStoryBase);
 
 export default DeleteStory;

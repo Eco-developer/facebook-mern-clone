@@ -1,4 +1,4 @@
-export const KEY = 'AIzaSyBo1Rlzy95ffC46F5cSGDYBg6IjP8ILXQE';
+export const KEY = process.env.REACT_APP_YOUTUBE_API_KEY;
 export const PART = 'snippet';
 export const MAXRESULTS = '15';
 export const ORDER = 'relevance';

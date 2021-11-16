@@ -25,8 +25,8 @@ const signUpHandler = async (req, res) => {
 		return res.status(400).send('User with this email address already exist')
 	}
 	try {
-		const hashPassaword = await bcrypt.hash(req.body.password, 8);
-		user = new models.User({...req.body, password: hashPassaword});
+		const hashPassword = await bcrypt.hash(req.body.password, 8);
+		user = new models.User({...req.body, password: hashPassword});
 		await user.save();
 		const signedUser = await models.User.findOne({email: req.body.email});
 		const { password, ...rest } = signedUser._doc;

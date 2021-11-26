@@ -81,7 +81,7 @@ const ProfilePageBase = ({uId, handleHeader, handleLoading, users, posts, commen
 
 	useEffect(() => {
 		const pusher = new Pusher(
-			process.env.REACT_APP_PUSHER_KEY, 
+			'2b4b95ca21b84c3f5841', 
 			{ cluster: 'us2' }
 		);
 

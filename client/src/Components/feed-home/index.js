@@ -20,7 +20,7 @@ const FeedHomeBase = ({handleRecipientTarget, recipientTarget}) => {
 		<FeedLoyout>
 			<Sidebar/>
 			<News/>
-			<ChatResipientsSide 
+			<ChatRecipientsSide
 				recipientTarget={recipientTarget}
 				setRecipientTarget={handleRecipientTarget}
 				extend='col-md-side-custom display-max'

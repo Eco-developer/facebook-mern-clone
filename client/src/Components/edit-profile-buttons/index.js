@@ -2,6 +2,7 @@ import Button from '../Buttons/index.js';
 import Form from '../Forms/index.js';
 import { InputFile } from '../Input/index.js';
 import { SentButton } from '../Buttons/index.js';
+import SentMessage from '../sent-message/index.js';
 import {
 	CheckCircleOutline,
 	ErrorOutline

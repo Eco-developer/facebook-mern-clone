@@ -1,4 +1,4 @@
-import DivButton from './div-button.js';
+import SentButton from './sent-button.js';
 import LoadMoreButton from './load-more-button.js';
 import ProfileButton from './profile-button.js';
 import BackButton from './back-button.js'
@@ -45,7 +45,7 @@ const Button = ({children, type='button', onClick, className='btn btn-primary bt
 }
 
 export { 
-    DivButton,
+    SentButton,
     LoadMoreButton,
     ProfileButton,
     BackButton,

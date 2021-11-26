@@ -5,12 +5,12 @@ import {
 	useEffect
 } from 'react';
 import { filterMessages } from '../../services/Selectors/index.js';
-import { setResipientTarget } from '../../actions/index.js';
+import { setRecipientTarget } from '../../actions/index.js';
 import { CHATS } from '../../Const/header.js';
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		handleResipientTarget: (target) => dispatch(setResipientTarget(target)),
+		handleRecipientTarget: (target) => dispatch(setRecipientTarget(target)),
 	};
 };
 
@@ -18,16 +18,16 @@ const mapStateToProps = (state) => (
 	{
 		sender : state.user._id, 
 		messages: state.messages,
-		resipientTarget: state.resipientTarget,
+		recipientTarget: state.recipientTarget,
 		headerPage: state.header,
 	}
 )
 
-const ChatMiniBase = ({resipientTarget=null, sender='', messages, handleResipientTarget, headerPage}) => {
+const ChatMiniBase = ({recipientTarget=null, sender='', messages, handleRecipientTarget, headerPage}) => {
 	const [ toggleChat, setToggle ] = useState(false);
-	const filteredMessages = resipientTarget ? filterMessages(messages, resipientTarget.id) : [];
-	const onHandleResipientTarget = () => {
-		handleResipientTarget(null);
+	const filteredMessages = recipientTarget ? filterMessages(messages, recipientTarget.id) : [];
+	const onHandleRecipientTarget = () => {
+		handleRecipientTarget(null);
 	};
 
 	const handleToggle = () => {
@@ -36,18 +36,18 @@ const ChatMiniBase = ({resipientTarget=null, sender='', messages, handleResipien
 
 	useEffect(() => {
 		if (headerPage && headerPage[CHATS]) {
-			handleResipientTarget(null);
+			handleRecipientTarget(null);
 		}
 	}, [headerPage])
 	
 
 	return (
-		resipientTarget ? 
+		recipientTarget ? 
 		<ChatMiniContainer 
 			messages={filteredMessages}
 			sender={sender}
-			resipientTarget={resipientTarget}
-			onHandleResipientTarget={onHandleResipientTarget}
+			recipientTarget={recipientTarget}
+			onHandleRecipientTarget={onHandleRecipientTarget}
 			handleToggle={handleToggle}
 			toggleChat={toggleChat}
 		/> : null

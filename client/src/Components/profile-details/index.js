@@ -1,9 +1,6 @@
 import DetailInfo from '../detail-info/index.js';
-import EditProfileObserver from '../edit-profile-observer/index.js';
 import { PostLoyout } from '../Loyouts/index.js';
-import { ProfileButton } from '../Buttons/index.js';
 import {
-	Edit,
 	LocationOn,
 	MyLocation,
 	More,
@@ -31,13 +28,6 @@ const ProfileDetails = () => {
 				Icon={More}
 				text='See more about me'
 			/>
-			<EditProfileObserver>
-				<ProfileButton
-					Icon={Edit}
-					text='Edit your details'
-					extensions='mt-2 mb-2'
-				/>
-			</EditProfileObserver>
 		</PostLoyout>
 	)
 }

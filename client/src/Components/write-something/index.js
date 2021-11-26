@@ -19,6 +19,7 @@ const WriteSomethingBase = ({user}) => {
 	const [text, setText] = useState('');
 	const [success, setSuccess] = useState(false);
 	const [failure, setFailure] = useState(false);
+	const [ processing, setProcessing] = useState(false);
 	const inputRef =  useRef(null);
 	
 	const {
@@ -55,7 +56,8 @@ const WriteSomethingBase = ({user}) => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-
+		if (processing) {return}
+		setProcessing(true);
 		let postImage = '';
 
 		if (image) {
@@ -87,7 +89,6 @@ const WriteSomethingBase = ({user}) => {
 			post_image: postImage,
 			description: text,
 			comments_id: uuid(),
-			location: '',
 		};
 
 		const notification = {
@@ -107,12 +108,15 @@ const WriteSomethingBase = ({user}) => {
 			setSuccess(true);
 			setTimeout(()=>{
 				setSuccess(false);
-			}, 1600);		
+				setProcessing(false);
+			}, 1500);
+
 		} catch (err) {
 			setFailure(true);
 			setTimeout(()=>{
 				setFailure(false);
-			}, 1100);
+				setProcessing(false);
+			}, 1500);
 		}
 		
 		setImage(null);
@@ -132,6 +136,7 @@ const WriteSomethingBase = ({user}) => {
 			inputRef={inputRef}
 			success={success}
 			failure={failure}
+			processing={processing}
 			handleSubmit={handleSubmit}
 			uid={_id}
 		/>	

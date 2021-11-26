@@ -1,28 +1,28 @@
 import Sidebar from '../Sidebar/index.js';
 import News from '../News/index.js';
-import ChatResipientsSide from '../chat-resipients-side/index.js';
+import ChatRecipientsSide from '../chat-recipients-side/index.js';
 import { FeedLoyout } from '../Loyouts/index.js';
 import { connect } from 'react-redux';
-import { setResipientTarget } from '../../actions/index.js';
+import { setRecipientTarget } from '../../actions/index.js';
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		handleResipientTarget: (target) => dispatch(setResipientTarget(target)),
+		handleRecipientTarget: (target) => dispatch(setRecipientTarget(target)),
 	};
 };
 
 const mapStateToProps = (state) => (
-	{ resipientTarget : state.resipientTarget }
+	{ recipientTarget : state.recipientTarget }
 )
 
-const FeedHomeBase = ({handleResipientTarget, resipientTarget}) => {
+const FeedHomeBase = ({handleRecipientTarget, recipientTarget}) => {
 	return (
 		<FeedLoyout>
 			<Sidebar/>
 			<News/>
 			<ChatResipientsSide 
-				resipientTarget={resipientTarget}
-				setResipientTarget={handleResipientTarget}
+				recipientTarget={recipientTarget}
+				setRecipientTarget={handleRecipientTarget}
 				extend='col-md-side-custom display-max'
 			/>
 		</FeedLoyout>

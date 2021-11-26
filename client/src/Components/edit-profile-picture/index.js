@@ -24,6 +24,9 @@ const EditProfilePicture = ({display, handleToggle}) => {
 	const [currentPicture, setCurrentPicture] = useState(displayPhoto);
 	const [newPicture, setNewPicture] = useState(blankImage);
 	const [image, setImage] = useState(null);
+	const [ processing, setProcessing ] = useState(false);
+	const [success, setSuccess] = useState(false);
+	const [failure, setFailure] = useState(false);
 	const inputRef =  useRef(null);
 
 	const onSetImage = () => {
@@ -50,7 +53,8 @@ const EditProfilePicture = ({display, handleToggle}) => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		if (!image) { return }
+		if (!image || processing) { return }
+		setProcessing(true);
 		const formatImg = new FormData();
 		const headers = {
 			'accept': 'application/json',
@@ -68,7 +72,12 @@ const EditProfilePicture = ({display, handleToggle}) => {
 			const { data: { filename } } = response;
 			newProfilePicture = filename;
 		} catch (error) {
-			console.log(error);
+			setFailure(true);
+			setTimeout(()=>{
+				setFailure(false);
+				setProcessing(false);
+				onHandleToggle();
+			}, 1500);
 		}
 		if (!newProfilePicture) { return }
 
@@ -86,10 +95,20 @@ const EditProfilePicture = ({display, handleToggle}) => {
 				`${FACEBOOK_API}upload/notification`,
 				notification
 			)
+			setSuccess(true);
+			setTimeout(()=>{
+				setSuccess(false);
+				setProcessing(false);
+				onHandleToggle();
+			}, 1500);
 		} catch (err) {
-			console.log(err);
+			setFailure(true);
+			setTimeout(()=>{
+				setFailure(false);
+				setProcessing(false);
+				onHandleToggle();
+			}, 1500);
 		}
-		onHandleToggle();
 	};
 
 	return (
@@ -112,6 +131,9 @@ const EditProfilePicture = ({display, handleToggle}) => {
 					onSetImage={onSetImage}
 					inputRef={inputRef}
 					onChange={onChange}
+					processing={processing}
+					success={success}
+					failure={failure}
 				/>
 			</PostLoyout>
 		</div>

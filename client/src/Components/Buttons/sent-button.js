@@ -1,6 +1,6 @@
 import './ripple.css';
 
-const DivButton = ({children, margin='', active='', onClick}) =>  {
+const SentButton = ({children, margin='', active='', onClick}) =>  {
 	
     const createRipple = (event) => {
         let thisButton = event.target;
@@ -40,7 +40,4 @@ const DivButton = ({children, margin='', active='', onClick}) =>  {
 	)
 }
 
-
-
-
-export default DivButton;
+export default SentButton;

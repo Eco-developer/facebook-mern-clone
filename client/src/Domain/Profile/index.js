@@ -57,7 +57,6 @@ const ProfilePageBase = ({uId, handleHeader, handleLoading, users, posts, commen
 			const userResponse =  await axios.get(`${FACEBOOK_API}user/${userid}`);		
 			const { data: userResponseData } = userResponse;
 			const { photos: rawPhotos } = userResponseData;
-			console.log(rawPhotos)
 			const onSortedPhotos = mapPostsToPhotos(
 				rawPhotos, 
 				posts, 

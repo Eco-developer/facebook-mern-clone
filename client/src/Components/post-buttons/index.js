@@ -1,5 +1,5 @@
 import Like from '../Like/index.js';
-import { DivButton } from '../Buttons/index.js';
+import { SentButton } from '../Buttons/index.js';
 import { 
 	ChatBubbleOutlineOutlined, 
 	ReplyOutlined
@@ -12,18 +12,18 @@ const PostButtons = ({comments, onSetComments, onHandleRePost, postId, likes}) =
 			postId={postId}
 			likes={likes}
 		/>
-		<DivButton
+		<SentButton
 			margin='mr-3 ml-3 text-primary'
 			onClick={onSetComments}
 		>
 			<ChatBubbleOutlineOutlined className='text-primary mr-1'/>
 			{comments && commentsLength(comments)}
-		</DivButton>
-		<DivButton
+		</SentButton>
+		<SentButton
 			onClick={onHandleRePost}
 		>
 			<ReplyOutlined className='text-primary rotate-left'/>
-		</DivButton>
+		</SentButton>
 	</div>
 )
 

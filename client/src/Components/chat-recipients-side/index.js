@@ -1,14 +1,17 @@
 import ChatHeader from '../chat-header/index.js';
-import ChatResipients from '../chat-resipients/index.js';
+import ChatRecipients from '../chat-recipients/index.js';
 import { useState } from 'react';
 import { connect } from 'react-redux';
 import { getFriends } from '../../services/Selectors/index.js';
 
 const mapStateToProps = (state) => (
-	{ users: state.users, uId: state.user._id }
+	{ 
+		users: state.users, 
+		uId: state.user._id
+	}
 )
 
-const ChatResipientsSideBase = ({users, uId, extend='', setResipientTarget=null, resipientTarget}) => {
+const ChatRecipientsSideBase = ({users, uId, extend='', setRecipientTarget=null, recipientTarget}) => {
 	const [filterKey, setFilterKey] = useState('');
 	const friends = getFriends(users, uId);
 	return (
@@ -18,17 +21,17 @@ const ChatResipientsSideBase = ({users, uId, extend='', setResipientTarget=null,
 					filterKey={filterKey}
 					setFilterKey={setFilterKey}
 				/>
-				<ChatResipients
+				<ChatRecipients
 					users={friends}
 					filterKey={filterKey}
-					setResipientTarget={setResipientTarget}
-					resipientTarget={resipientTarget}
+					setRecipientTarget={setRecipientTarget}
+					recipientTarget={recipientTarget}
 				/>
 			</div>
 		</div>
 	)
 }
 
-const ChatResipientsSide = connect(mapStateToProps)(ChatResipientsSideBase);
+const ChatRecipientsSide = connect(mapStateToProps)(ChatRecipientsSideBase);
 
-export default ChatResipientsSide;
+export default ChatRecipientsSide;

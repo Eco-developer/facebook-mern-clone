@@ -9,6 +9,7 @@ const RePostObserver = ({data, user, onHandleRePost}) => {
 	const [text, setText] = useState('');
 	const [success, setSuccess] = useState(false);
 	const [failure, setFailure] = useState(false);
+	const [ processing, setProcessing ] = useState(false);
 
 	const {
 		postUrl,
@@ -17,6 +18,8 @@ const RePostObserver = ({data, user, onHandleRePost}) => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
+		if (processing) {return}
+		setProcessing(true);
 		const postData = {
 			user_name: user.displayName,
 			user_id: user._id,
@@ -24,7 +27,6 @@ const RePostObserver = ({data, user, onHandleRePost}) => {
 			post_image: postUrl,
 			description: text,
 			comments_id: uuid(),
-			location: '',
 		};
 
 		const notification = {
@@ -63,6 +65,7 @@ const RePostObserver = ({data, user, onHandleRePost}) => {
 			text={text}
 			success={success}
 			failure={failure}
+			processing={processing}
 			onHandleRePost={onHandleRePost}
 			onChangeText={onChangeText}
 			handleSubmit={handleSubmit}	

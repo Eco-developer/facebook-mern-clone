@@ -286,16 +286,16 @@ a {
   border-radius: 10px;
 }
 
-.chat-resipient {
+.chat-recipient {
   border-radius: 10px;
   transition: 0.4s all ease-in-out;
 }
 
-.chat-resipient > div > h5 {
+.chat-recipient > div > h5 {
   word-break: break-word;
 }
 
-.chat-resipient:hover, .write-button:hover, .setting-user:hover {
+.chat-recipient:hover, .write-button:hover, .setting-user:hover {
   background-color: #e1dfdf;
 }
 
@@ -555,6 +555,12 @@ a {
 .chat-mini-header {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+}
+
+.chat-mini-header p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .expanded-post {

@@ -65,7 +65,7 @@ app.use('/api/v2/delete', routes.deleteStoryRouter)
 app.use('/api/v2/logout', routes.logoutRouter);
 
 if (process.env.NODE_ENV === 'production') {
-	const dir = __dirname.slice(0,-6);
+	const dir = __dirname.replace('src', '').replace('build', '');
 	app.use(express.static(path.join(dir, '/client/build')));
 	app.get('*', (req, res) => {
 		res.sendFile(path.join(dir, 'client', 'build', 'index.html'));

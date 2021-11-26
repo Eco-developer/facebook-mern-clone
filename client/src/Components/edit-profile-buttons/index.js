@@ -1,30 +1,48 @@
 import Button from '../Buttons/index.js';
 import Form from '../Forms/index.js';
 import { InputFile } from '../Input/index.js';
-import { DivButton } from '../Buttons/index.js';
+import { SentButton } from '../Buttons/index.js';
+import {
+	CheckCircleOutline,
+	ErrorOutline
+} from '@material-ui/icons';
 
-const EditProfileButtons = ({handleSubmit, onSetImage, inputRef, onChange, changeBtn='Edit', postBtn='Save Changes'}) => (
+const EditProfileButtons = ({handleSubmit, onSetImage, inputRef, onChange, changeBtn='Edit', postBtn='Save Changes', processing=false, success, failure}) => (
 	<Form onSubmit={handleSubmit}>
 		<div className='d-flex flex-column'>
-			<DivButton
+			<SentButton
 				onClick={onSetImage}
 			>
 				<p className='text-primary m-0'>
 					{changeBtn}
 				</p>
-			</DivButton>
+			</SentButton>
 			<InputFile
 				id='edit-profile-input'
 				nodeRef={inputRef}
 				onChange={onChange}
 			/>
-			<Button 
-				className='btn btn-primary flex-grow-1 rounded-10 mt-2'
-				type='submit'
-				onClick={handleSubmit}
-			>
-				{postBtn}
-			</Button>
+			<div className='mt-2 d-flex justify-content-end p-relative'>
+				<SentMessage
+					active={success}
+					Icon={CheckCircleOutline}
+					color='bg-success'
+				/>
+				<SentMessage
+					active={failure}
+					Icon={ErrorOutline}
+					color='bg-danger'
+				/>
+				<Button 
+					className='btn btn-primary w-100 rounded-10'
+					type='submit'
+					onClick={handleSubmit}
+					disabled={processing}
+				>
+					{postBtn}
+				</Button>
+			</div>
+			
 		</div>
 	</Form>
 )

@@ -9,7 +9,7 @@ const mapStateToProps = (state) => (
 	{user : state.user}
 )
 
-const UserSettingBase = ({user}) => {
+const UserSettingBase = ({handleDropDown, user}) => {
 	const { pathname } = useLocation();
 	const { push } = useHistory();
 	const {
@@ -22,11 +22,12 @@ const UserSettingBase = ({user}) => {
 		if (!pathname.includes(_id)) {
 			push(_id);
 		}
+		handleDropDown();
 	};
 
 	return (
 		<div 
-			className='d-flex p-2 setting-user flex-grow-1 align-items-center rounded-10 transition-4s-eio cursor-pointer'
+			className='d-flex p-2 setting-user w-100 align-items-center rounded-10 transition-4s-eio cursor-pointer'
 			onClick={onClick}
 		>
 			<Avatar src={displayPhoto}/>

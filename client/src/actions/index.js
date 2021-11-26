@@ -9,7 +9,7 @@ import {
 	UPDATE_EXPANDED_POST, 
 	SET_DEFAULT_HEADER,
 	SET_RE_POST,
-	SET_RESIPIENT_TARGET,
+	SET_RECIPIENT_TARGET,
 	LOADING_PROFILE,
 	DELETE_STORY
 } from '../Const/action-types.js';
@@ -45,8 +45,8 @@ export function setRePost(payload) {
 	return { type: SET_RE_POST, payload };
 }
 
-export function setResipientTarget(payload) {
-	return { type: SET_RESIPIENT_TARGET, payload };
+export function setRecipientTarget(payload) {
+	return { type: SET_RECIPIENT_TARGET, payload };
 }
 
 export function setDefaultData() {

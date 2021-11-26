@@ -20,7 +20,7 @@ const UserSettingsDropDown = ({open, handleDropDown}) => {
 				extend='p-3 pb-2 mb-1'
 			/>
 			<div className='height-fit d-flex flex-column flex-grow-1 p-2'>
-				<UserSetting/>
+				<UserSetting handleDropDown={handleDropDown}/>
 				<SettingOption
 					Icon={Settings}
 					iconClass='text-warning'

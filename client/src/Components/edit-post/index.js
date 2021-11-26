@@ -13,22 +13,34 @@ const mapDispatchToProps = (dispatch) => {
 
 const EditPostBase = ({data, onClose, handleExpandedPost}) => {
 	const [text, setText] = useState(data.description);
+	const [success, setSuccess] = useState(false);
+	const [failure, setFailure] = useState(false);
+	const [ processing, setProcessing ] = useState(false);
+
 	const onChangeText = (e) => {
 		const { target: { value } } = e;
 		setText(value);
 	};
+
 	const handleSubmit = async (e) => {
 		e.preventDefault();
+		if (processing) { return }
+		setProcessing(true);
 		try {
 			const response = await axios.put(
 				`${FACEBOOK_API}edit/post/${data.postId}`,
 				{ newDescription: text }
 			);
 			handleExpandedPost({description: response.data})
-			onClose();
+			
+			setSuccess(true);
 		} catch (err) {
 			console.log(err);
+			setFailure(true);
 		}
+		setTimeout(()=>{
+			onClose();
+		}, 1520);
 	};
 	return (
 		<RePostContainer
@@ -39,6 +51,10 @@ const EditPostBase = ({data, onClose, handleExpandedPost}) => {
 			handleSubmit={handleSubmit}	
 			headerTitle='Edit Post'
 			button='Edit'
+			success={success}
+			failure={failure}
+			processing={processing}
+			sentMessages={true}
 		/>
 	)
 }

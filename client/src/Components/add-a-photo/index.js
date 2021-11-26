@@ -20,6 +20,9 @@ const AddAPhoto = ({handleToggle}) => {
 	const [currentPicture, setCurrentPicture] = useState(null);
 	const [image, setImage] = useState(null);
 	const [text, setText] = useState('');
+	const [ processing, setProcessing] = useState(false);
+	const [success, setSuccess] = useState(false);
+	const [failure, setFailure] = useState(false);
 	const inputRef =  useRef(null);
 
 	const { 
@@ -50,7 +53,8 @@ const AddAPhoto = ({handleToggle}) => {
 	
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		if (!image) { return }
+		if (!image || processing) { return }
+		setProcessing(true);
 		let postImage;
 	
 		const formatImg = new FormData();
@@ -69,7 +73,7 @@ const AddAPhoto = ({handleToggle}) => {
 			const { data: { filename } } = response;
 			postImage = filename;
 		} catch (error) {
-			console.log(error);
+			console.error(error);
 		}
 
 		const postData = {
@@ -79,7 +83,6 @@ const AddAPhoto = ({handleToggle}) => {
 			post_image: postImage,
 			description: text,
 			comments_id: uuid(),
-			location: '',
 		};
 		const notification = {
 			type: ADD_PHOTO,
@@ -97,7 +100,12 @@ const AddAPhoto = ({handleToggle}) => {
 			photoId = data;	
 
 		} catch (err) {
-			console.log(err);
+			setFailure(true);
+			setTimeout(()=>{
+				setFailure(false);
+				setProcessing(false);
+				handleToggle();
+			}, 1500);
 		}
 		try {
 			await axios.put(
@@ -109,10 +117,20 @@ const AddAPhoto = ({handleToggle}) => {
 				`${FACEBOOK_API}upload/notification`,
 				notification
 			)
+			setSuccess(true);
+			setTimeout(()=>{
+				setSuccess(false);
+				setProcessing(false);
+				handleToggle();
+			}, 1500);
 		} catch (err) {
-			console.log(err);
+			setFailure(true);
+			setTimeout(()=>{
+				setFailure(false);
+				setProcessing(false);
+				handleToggle();
+			}, 1500);
 		}
-		handleToggle();
 	}
 
 	return (
@@ -151,6 +169,9 @@ const AddAPhoto = ({handleToggle}) => {
 							onChange={onChangeImage}
 							changeBtn='Change'
 							postBtn='Post'
+							processing={processing}
+							success={success}
+							failure={failure}
 						/>
 					</div>
 				</div>

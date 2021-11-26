@@ -23,6 +23,9 @@ const EditProfileBackgroundPicture = ({display, handleToggle}) => {
 	const [currentPicture, setCurrentPicture] = useState(profile_background_picture);
 	const [newPicture, setNewPicture] = useState(defaultBackrgoundPicture);
 	const [image, setImage] = useState(null);
+	const [ processing, setProcessing] = useState(false);
+	const [success, setSuccess] = useState(false);
+	const [failure, setFailure] = useState(false);
 	const inputRef =  useRef(null);
 
 	const onSetImage = () => {
@@ -49,7 +52,8 @@ const EditProfileBackgroundPicture = ({display, handleToggle}) => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		if (!image) { return }
+		if (!image || processing) { return }
+		setProcessing(true);
 		const formatImg = new FormData();
 		const headers = {
 			'accept': 'application/json',
@@ -67,7 +71,12 @@ const EditProfileBackgroundPicture = ({display, handleToggle}) => {
 			const { data: { filename } } = response;
 			newProfileBackgroundPicture = filename;
 		} catch (error) {
-			console.log(error);
+			setFailure(true);
+			setTimeout(()=>{
+				setFailure(false);
+				setProcessing(false);
+				onHandleToggle();
+			}, 1500);
 		}
 		if (!newProfileBackgroundPicture) { return }
 		try {
@@ -75,10 +84,20 @@ const EditProfileBackgroundPicture = ({display, handleToggle}) => {
 				`${FACEBOOK_API}edit/profile/${_id}`,
 				{ type: PROFILE_BACKGROUND_PICTURE, newProfileBackgroundPicture }
 			);
+			setSuccess(true);
+			setTimeout(()=>{
+				setSuccess(false);
+				setProcessing(false);
+				onHandleToggle();
+			}, 1500);
 		} catch (err) {
-			console.log(err);
+			setFailure(true);
+			setTimeout(()=>{
+				setFailure(false);
+				setProcessing(false);
+				onHandleToggle();
+			}, 1500);
 		}
-		onHandleToggle();
 	};
 
 	return (
@@ -100,6 +119,9 @@ const EditProfileBackgroundPicture = ({display, handleToggle}) => {
 					onSetImage={onSetImage}
 					inputRef={inputRef}
 					onChange={onChange}
+					processing={processing}
+					success={success}
+					failure={failure}
 				/>
 			</PostLoyout>
 		</div>

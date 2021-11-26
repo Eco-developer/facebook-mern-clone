@@ -2,7 +2,7 @@ import { ArrowForwardIos } from '@material-ui/icons';
 
 const SettingOption = ({Icon, arrow=true, section, iconClass='text_black', onClick}) => (
 	<div 
-		className='d-flex p-2 setting-user rounded-10 transition-4s-eio cursor-pointer align-items-center flex-grow-1 mt-1 mb-1'
+		className='d-flex p-2 setting-user rounded-10 transition-4s-eio cursor-pointer align-items-center w-100 mt-1 mb-1'
 		onClick={onClick}
 	>
 		{Icon ?

@@ -4,7 +4,7 @@ import { Textarea } from '../Input/index.js';
 import axios from 'axios';
 import FACEBOOK_API from '../../Const/facebookApi.js';
 import { useState } from 'react';
-import { DivButton } from '../Buttons/index.js';
+import { SentButton } from '../Buttons/index.js';
 import { NearMe } from '@material-ui/icons';
 import { connect } from 'react-redux';
 import {v4 as uuid} from 'uuid';
@@ -87,11 +87,11 @@ const MakeCommentBoxBase = ({commentsId, setdefaultCommentsId, targetName, user}
 					onChange={onChange}
 				/>			
 				
-				<DivButton 
+				<SentButton 
 					onClick={onSubmit}
 				>
 					<NearMe className='text-primary'/>
-				</DivButton>
+				</SentButton>
 
 			</div>
 		</Form>

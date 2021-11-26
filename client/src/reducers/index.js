@@ -12,7 +12,7 @@ import storiesReducer from './storiesReducer.js';
 import rePostReducer from './rePostReducer.js';
 import commentsReducer from './commentsReducer.js';
 import messagesReducer from './messagesReducer.js';
-import resipientTargetReducer from './resipientTargetReducer.js';
+import recipientTargetReducer from './recipientTargetReducer.js';
 import loadingProfileReducer from './loadingProfileReducer.js';
 import notificationsReducer from './notificationsReducer.js';
 
@@ -31,7 +31,7 @@ export {
 	rePostReducer,
 	commentsReducer,
 	messagesReducer,
-	resipientTargetReducer,
+	recipientTargetReducer,
 	loadingProfileReducer,
 	notificationsReducer,
 };

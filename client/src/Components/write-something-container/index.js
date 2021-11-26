@@ -11,7 +11,7 @@ import {
 	ErrorOutline
 } from '@material-ui/icons';
 
-const WriteSomethingContainer = ({displayName, displayPhoto, image, text, uid,onChangeText, onClose, onSetImage, onChangeImage, inputRef, success, failure, handleSubmit}) => (
+const WriteSomethingContainer = ({displayName, displayPhoto, image, text, uid,onChangeText, onClose, onSetImage, onChangeImage, inputRef, success, failure, processing, handleSubmit}) => (
 	<PostLoyout>
 			<WriteHeader
 				uid={uid}
@@ -49,7 +49,7 @@ const WriteSomethingContainer = ({displayName, displayPhoto, image, text, uid,on
 					/>
 					<Button 
 						className='btn btn-primary w-100'
-						disabled={!image && !text.trim()}
+						disabled={(!image && !text.trim()) || processing}
 						onClick={handleSubmit}
 					>
 						Post

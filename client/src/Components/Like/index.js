@@ -1,6 +1,6 @@
 import axios from 'axios';
 import FACEBOOK_API from '../../Const/facebookApi.js';
-import { DivButton } from '../Buttons/index.js';
+import { SentButton } from '../Buttons/index.js';
 import { ThumbUpOutlined } from '@material-ui/icons';
 import { connect } from 'react-redux';
 import { useState } from 'react';
@@ -30,7 +30,7 @@ const LikeBase = ({postId, userId, likes, handleExpandedPost}) => {
 	}
 
 	return (
-		<DivButton 
+		<SentButton 
 			onClick={handleSubmit}
 			active={likeActive ? 'like-active' : ''}
 		>
@@ -38,7 +38,7 @@ const LikeBase = ({postId, userId, likes, handleExpandedPost}) => {
 			<p className='m-0 p-0 text-primary'>
 				{likesLength(likes)}
 			</p>
-		</DivButton>
+		</SentButton>
 	)
 }
 

@@ -22,7 +22,7 @@ const rootReducer = combineReducers({
 	rePost: reducers.rePostReducer,
 	comments: reducers.commentsReducer,
 	messages: reducers.messagesReducer,
-	resipientTarget: reducers.resipientTargetReducer,
+	recipientTarget: reducers.recipientTargetReducer,
 	profileLoading: reducers.loadingProfileReducer,
 	notifications: reducers.notificationsReducer,
 });

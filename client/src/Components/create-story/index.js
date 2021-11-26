@@ -15,6 +15,9 @@ import { MAKE_STORY } from '../../Const/notification-types.js';
 const CreateStory = ({handleToggle, userName, userId}) => {
 	const [currentPicture, setCurrentPicture] = useState(null);
 	const [image, setImage] = useState(null);
+	const [ processing, setProcessing ] = useState(false);
+	const [success, setSuccess] = useState(false);
+	const [failure, setFailure] = useState(false);
 	const inputRef =  useRef(null);
 
 	const onSetImage = () => {
@@ -32,7 +35,8 @@ const CreateStory = ({handleToggle, userName, userId}) => {
 	
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		if (!image) { return }
+		if (!image  || processing) { return }
+		setProcessing(true);
 		let postImage;
 	
 		const formatImg = new FormData();
@@ -51,7 +55,12 @@ const CreateStory = ({handleToggle, userName, userId}) => {
 			const { data: { filename } } = response;
 			postImage = filename;
 		} catch (error) {
-			console.log(error);
+			setFailure(true);
+			setTimeout(()=>{
+				setFailure(false);
+				setProcessing(false);
+				handleToggle();
+			}, 1500);
 		}
 
 		const postData = {
@@ -74,10 +83,20 @@ const CreateStory = ({handleToggle, userName, userId}) => {
 				`${FACEBOOK_API}upload/notification`,
 				notification
 			)
+			setSuccess(true);
+			setTimeout(()=>{
+				setSuccess(false);
+				setProcessing(false);
+				handleToggle();
+			}, 1500);
 		} catch (err) {
-			console.log(err);
+			setFailure(true);
+			setTimeout(()=>{
+				setFailure(false);
+				setProcessing(false);
+				handleToggle();
+			}, 1500);
 		}
-		handleToggle();
 	}
 
 	return (
@@ -110,6 +129,9 @@ const CreateStory = ({handleToggle, userName, userId}) => {
 							onChange={onChangeImage}
 							changeBtn='Change'
 							postBtn='Post'
+							processing={processing}
+							success={success}
+							failure={failure}
 						/>
 					</div>
 				</div>

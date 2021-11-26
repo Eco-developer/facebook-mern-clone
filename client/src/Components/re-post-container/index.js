@@ -11,7 +11,7 @@ import {
 	ErrorOutline
 } from '@material-ui/icons';
 
-const RePostContainer = ({user=null, headerTitle, button, postUrl, onHandleRePost, onChangeText, sentMessages=false, success, failure, handleSubmit, text}) => (
+const RePostContainer = ({user=null, headerTitle, button, postUrl, onHandleRePost, onChangeText, sentMessages=false, success, failure, processing=false, handleSubmit, text}) => (
 	<div className='re-post-container'>
 		<PostLoyout mnres={false}>
 			<EditHeader
@@ -60,6 +60,7 @@ const RePostContainer = ({user=null, headerTitle, button, postUrl, onHandleRePos
 						className='btn btn-primary w-100'
 						type='submit'
 						onClick={handleSubmit}
+						disabled={processing}
 					>
 						{button}
 					</Button>

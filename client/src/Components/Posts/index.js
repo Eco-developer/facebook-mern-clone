@@ -20,7 +20,7 @@ const PostsBase = ({posts, comments, userFilter=''}) => {
 	)
 	const filtered = userFilter ? filterByUserId(mappedPosts, userFilter) : mappedPosts;
 	return (
-		filtered.length ? filtered.map(({_id, user_name, user_id, user_avatar, likes, post_image, description, comments_id, location, comments, createdAt}) => (
+		filtered.length ? filtered.map(({_id, user_name, user_id, user_avatar, likes, post_image, description, comments_id, comments, createdAt}) => (
 			<Post
 				key={uuid()}
 				postId={_id}

@@ -1,23 +1,23 @@
 import Avatar from '../Avatar/index.js';
 
-const ChatResipient = ({src, name, status, id, setResipientTarget, resipientTarget}) => {
+const ChatRecipient = ({src, name, status, id, setRecipientTarget, recipientTarget}) => {
 	
 	const onClick = (e) => {
 		if (window.innerWidth <= 575) {
 			const chatMain = document.querySelector('.chats-main');
 			chatMain.style.setProperty('transform', 'translate(0)');
 		}
-		const resipientTarget = {
+		const recipientTarget = {
 			src,
 			name,
 			id,
 		};
-		setResipientTarget(resipientTarget);	
+		setRecipientTarget(recipientTarget);	
 	}
 
 	return (
 		<div 
-			className={`chat-resipient d-flex p-2 mt-1 mb-1 align-items-center cursor-pointer ${resipientTarget?.id === id ? 'bg-lightblue' : ''}`}
+			className={`chat-recipient d-flex p-2 mt-1 mb-1 align-items-center cursor-pointer ${recipientTarget?.id === id ? 'bg-lightblue' : ''}`}
 			onClick={onClick}
 		>
 			<div className='p-relative'>
@@ -33,4 +33,4 @@ const ChatResipient = ({src, name, status, id, setResipientTarget, resipientTarg
 	)
 }
 
-export default ChatResipient;
+export default ChatRecipient;

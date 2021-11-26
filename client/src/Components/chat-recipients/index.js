@@ -1,27 +1,27 @@
-import ChatResipient from '../chat-resipient/index.js';
+import ChatRecipient from '../chat-recipient/index.js';
 import {v4 as uuid} from 'uuid';
 
 const filterUsers = (list, key) => (
 	list.filter((entity) => entity.displayName.toLowerCase().includes(key.toLocaleLowerCase()))
 )
 
-const ChatResipients = ({users, filterKey, setResipientTarget, resipientTarget}) => (
+const ChatRecipients = ({users, filterKey, setRecipientTarget, recipientTarget}) => (
 	<div className='h-fill overflow-y'>
 		<div className='d-flex flex-column height-fit'>
 			{users.length ? 
 				filterUsers(users, filterKey).map(user => (
-				<ChatResipient
+				<ChatRecipient
 					key={uuid()}
 					id={user._id}
 					src={user.displayPhoto}
 					name={user.displayName}
-					resipientTarget={resipientTarget}
+					recipientTarget={recipientTarget}
 					status={true}
-					setResipientTarget={setResipientTarget}
+					setRecipientTarget={setRecipientTarget}
 				/>
 			)): null}
 		</div>
 	</div>
 )
 
-export default ChatResipients;
+export default ChatRecipients;

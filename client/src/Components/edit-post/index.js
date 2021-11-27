@@ -32,15 +32,13 @@ const EditPostBase = ({data, onClose, handleExpandedPost}) => {
 				{ newDescription: text }
 			);
 			handleExpandedPost({description: response.data})
-			
 			setSuccess(true);
 		} catch (err) {
-			console.log(err);
 			setFailure(true);
 		}
 		setTimeout(()=>{
 			onClose();
-		}, 1520);
+		}, 1600);
 	};
 	return (
 		<RePostContainer

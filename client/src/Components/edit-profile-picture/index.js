@@ -77,7 +77,7 @@ const EditProfilePicture = ({display, handleToggle}) => {
 				setFailure(false);
 				setProcessing(false);
 				onHandleToggle();
-			}, 1500);
+			}, 1600);
 		}
 		if (!newProfilePicture) { return }
 
@@ -100,14 +100,14 @@ const EditProfilePicture = ({display, handleToggle}) => {
 				setSuccess(false);
 				setProcessing(false);
 				onHandleToggle();
-			}, 1500);
+			}, 1600);
 		} catch (err) {
 			setFailure(true);
 			setTimeout(()=>{
 				setFailure(false);
 				setProcessing(false);
 				onHandleToggle();
-			}, 1500);
+			}, 1600);
 		}
 	};
 

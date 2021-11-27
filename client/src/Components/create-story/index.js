@@ -60,7 +60,7 @@ const CreateStory = ({handleToggle, userName, userId}) => {
 				setFailure(false);
 				setProcessing(false);
 				handleToggle();
-			}, 1500);
+			}, 1600);
 		}
 
 		const postData = {
@@ -88,14 +88,14 @@ const CreateStory = ({handleToggle, userName, userId}) => {
 				setSuccess(false);
 				setProcessing(false);
 				handleToggle();
-			}, 1500);
+			}, 1600);
 		} catch (err) {
 			setFailure(true);
 			setTimeout(()=>{
 				setFailure(false);
 				setProcessing(false);
 				handleToggle();
-			}, 1500);
+			}, 1600);
 		}
 	}
 

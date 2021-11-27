@@ -105,7 +105,7 @@ const AddAPhoto = ({handleToggle}) => {
 				setFailure(false);
 				setProcessing(false);
 				handleToggle();
-			}, 1500);
+			}, 1600);
 		}
 		try {
 			await axios.put(
@@ -122,14 +122,14 @@ const AddAPhoto = ({handleToggle}) => {
 				setSuccess(false);
 				setProcessing(false);
 				handleToggle();
-			}, 1500);
+			}, 1600);
 		} catch (err) {
 			setFailure(true);
 			setTimeout(()=>{
 				setFailure(false);
 				setProcessing(false);
 				handleToggle();
-			}, 1500);
+			}, 1600);
 		}
 	}
 

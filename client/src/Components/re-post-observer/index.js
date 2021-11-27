@@ -50,7 +50,7 @@ const RePostObserver = ({data, user, onHandleRePost}) => {
 		}
 		setTimeout(()=>{
 			onHandleRePost();
-		}, 1520);	
+		}, 1600);	
 	};
 
 	const onChangeText = (e) => {

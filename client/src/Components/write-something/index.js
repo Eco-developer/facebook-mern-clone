@@ -109,14 +109,14 @@ const WriteSomethingBase = ({user}) => {
 			setTimeout(()=>{
 				setSuccess(false);
 				setProcessing(false);
-			}, 1500);
+			}, 1600);
 
 		} catch (err) {
 			setFailure(true);
 			setTimeout(()=>{
 				setFailure(false);
 				setProcessing(false);
-			}, 1500);
+			}, 1600);
 		}
 		
 		setImage(null);

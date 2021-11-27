@@ -20,7 +20,7 @@ const VideosMain = () =>{
 	useEffect(()=> {
 		const fetchApi = async () => {
 			try {
-				const response = await axios.get(`${API.BASE_URL}?part=${API.PART}&maxResults=${API.MAXRESULTS}&order=${API.ORDER}&q=${searchKey}&key=${API.KEY}`);
+				const response = await axios.get(`${API.BASE_URL}?part=${API.PART}&maxResults=${API.MAXRESULTS}&order=${API.ORDER}&safeSearch=${API.SAFE}&q=${searchKey}&key=${API.KEY}`);
 				const { data: { items } } = response;
 				const ids = items.map(item => item.id.videoId);
 				setVideos(ids);

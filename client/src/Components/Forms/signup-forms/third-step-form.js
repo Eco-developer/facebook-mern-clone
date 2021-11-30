@@ -57,7 +57,7 @@ const ConnectedThirdStepForm = ({userData, setDefaultData, seedInitialData}) => 
 				setCountries(allCountries)
 				setSelectedCountry(firstCountry);
 			} catch (error){
-				console.log(error.message);
+				console.error(error.message);
 			}
 		}
 		getContries();
@@ -78,7 +78,7 @@ const ConnectedThirdStepForm = ({userData, setDefaultData, seedInitialData}) => 
 				setSelectedState(firstState);
 				if (isLoading) {setIsLoading(false)}	
 			} catch (error){
-				console.log(error.message);
+				console.error(error.message);
 			}
 		}
 		getStates();

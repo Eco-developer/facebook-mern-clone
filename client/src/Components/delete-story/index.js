@@ -40,7 +40,7 @@ const DeleteStoryBase = ({userId, storyId, uId, handleLeftControl, handleDeleteS
 				`${FACEBOOK_API}delete/story/${storyId}`);
 			handleDeleteStory(storyId)
 		} catch (err) {
-			console.log(err);
+			console.error(err);
 		}
 	};
 

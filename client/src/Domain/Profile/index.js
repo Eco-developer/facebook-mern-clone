@@ -68,7 +68,7 @@ const ProfilePageBase = ({uId, handleHeader, handleLoading, users, posts, commen
 			setUserInfo({...userResponseData, photos });
 			handleLoading(false);
 		} catch (error){
-			console.log(error)
+			console.error(error)
 		}
 	};
 
@@ -81,7 +81,7 @@ const ProfilePageBase = ({uId, handleHeader, handleLoading, users, posts, commen
 
 	useEffect(() => {
 		const pusher = new Pusher(
-			'2b4b95ca21b84c3f5841', 
+			process.env.REACT_APP_PUSHER_KEY, 
 			{ cluster: 'us2' }
 		);
 

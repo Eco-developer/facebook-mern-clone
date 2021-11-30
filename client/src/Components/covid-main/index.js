@@ -24,7 +24,7 @@ const CovidMain = () => {
 				const { data } = response;
 				setCovidInfo(data);
 			} catch (error) {
-				console.log(error.message)
+				console.error(error.message)
 			}
 		};
 		getData();

@@ -20,7 +20,7 @@ const CovidNews = () => {
 				} = response;
 				setArticles(articles)
 			} catch (error) {
-				console.log(error.message)
+				console.error(error.message)
 			}
 		};
 		getData();

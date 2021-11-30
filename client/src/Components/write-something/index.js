@@ -78,7 +78,11 @@ const WriteSomethingBase = ({user}) => {
 				const { data: { filename } } = response;
 				postImage = filename;
 			} catch (error) {
-				console.log(error);
+				setFailure(true);
+				setTimeout(()=>{
+					setFailure(false);
+					setProcessing(false);
+				}, 1600);
 			}
 		}
 

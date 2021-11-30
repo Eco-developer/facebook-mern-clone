@@ -25,7 +25,7 @@ const VideosMain = () =>{
 				const ids = items.map(item => item.id.videoId);
 				setVideos(ids);
 			} catch (err) {
-				console.log(err)
+				console.error(err)
 			}
 		}
 		fetchApi()

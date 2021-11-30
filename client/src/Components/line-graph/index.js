@@ -30,7 +30,7 @@ const LineGraph = ({ casesType='cases' }) => {
         const { data } = response;
         setGraphData(buildChartData(data, casesType));
       } catch (error) {
-        console.log(error)
+        console.error(error)
       }
     };
 

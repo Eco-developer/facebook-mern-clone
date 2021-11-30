@@ -43,7 +43,7 @@ function* workerSaga() {
 		yield put({type: LOADING_APP, payload: false});
 	} catch (error) {
 		yield put({type: LOADING_APP, payload: false});
-		console.log(error.message);
+		console.error(error.message);
 	}
 };
 
@@ -53,7 +53,7 @@ const fetchUsers= async () => {
 		const { data } = usersResponse;
 		return data;	
 	} catch (error){
-		console.log(error.message);
+		console.error(error.message);
 	}
 };
 
@@ -63,7 +63,7 @@ const fetchAuthUser = async () => {
 		const { data } = userResponse;
 		return data;
 	} catch (error){
-		console.log(error.message);	
+		console.error(error.message);	
 	}
 };
 
@@ -73,7 +73,7 @@ const fetchPosts = async () => {
 		const { data } = postsResponse;
 		return data;
 	} catch (error) {
-		console.log(error.message);
+		console.error(error.message);
 	}
 };
 
@@ -83,7 +83,7 @@ const fetchStories = async () => {
 		const { data } = storiesResponse;
 		return data;
 	} catch (error) {
-		console.log(error.message);
+		console.error(error.message);
 	}
 }
 
@@ -93,7 +93,7 @@ const fetchComments = async () => {
 		const { data } = commentsResponse;
 		return data;
 	} catch (error) {
-		console.log(error.message);
+		console.error(error.message);
 	}
 };
 
@@ -103,7 +103,7 @@ const fetchMessages = async () => {
 		const { data } = messsagesResponse;
 		return data;
 	} catch (error) {
-		console.log(error.message);
+		console.error(error.message);
 	}
 };
 
@@ -113,6 +113,6 @@ const fetchNotifications = async () => {
 		const { data } = notificationsResponse;
 		return data;
 	} catch (error) {
-		console.log(error.message);
+		console.error(error.message);
 	}
 };

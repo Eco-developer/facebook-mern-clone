@@ -10,7 +10,7 @@ MongoDB<br>
 <br>
 # Functionality:
 <br>
-Full athentication process and seccion persistance<br>
+Full athentication process and session persistance<br>
 Realtime chat<br>
 Realtime Post (CRUD)<br>
 Like Post<br>
